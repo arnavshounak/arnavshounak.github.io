@@ -114,28 +114,29 @@ h3{
 .card:hover{
  transform:scale(1.08);
 }
- .insta-float{
- position:fixed;
- bottom:25px;
- right:25px;
- width:55px;
- height:55px;
- border-radius:50%;
- display:flex;
+.insta-link{
+ display:inline-flex;
  align-items:center;
- justify-content:center;
- font-size:26px;
+ gap:8px;
+ margin-top:20px;
+ padding:8px 14px;
+ font-size:14px;
  text-decoration:none;
- color:white;
- background:linear-gradient(135deg,#ff0066,#6a00ff,#00ffd5);
- box-shadow:0 0 15px #ff0066, 0 0 30px #6a00ff;
- z-index:999;
+ color:#cccccc;
+ background:rgba(255,255,255,0.05);
+ border-radius:20px;
  transition:0.3s;
 }
 
-.insta-float:hover{
- transform:scale(1.15) rotate(10deg);
- box-shadow:0 0 25px #ff0066, 0 0 50px #6a00ff;
+.insta-link:hover{
+ background:rgba(255,255,255,0.12);
+ transform:scale(1.05);
+}
+
+.insta-icon{
+ width:18px;
+ height:18px;
+ object-fit:contain;
 }
 
 
@@ -148,6 +149,10 @@ h3{
 <h1>ARNAV SHOUNAK</h1>
 <h2>STUDENT</h2>
 <h3>MAIN WEB PAGE</h3>
+<a href="https://instagram.com/shreenav.09" target="_blank" class="insta-link">
+  <img src="images/instagram.png" class="insta-icon">
+  instagram
+</a>
 
 
 
@@ -181,11 +186,7 @@ h3{
 </div>
 
 </section>
-<a href="https://instagram.com/shreenav.09" 
-   target="_blank" 
-   class="insta-float">
-   📸
-</a>
+
 
 </body>
 </html>
