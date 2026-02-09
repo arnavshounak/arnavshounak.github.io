@@ -13,19 +13,15 @@
 }
 
 body{
- height:100vh;
  background:#050505;
  color:white;
- display:flex;
- justify-content:center;
- align-items:center;
- overflow:hidden;
+ overflow-x:hidden;
 }
 
-/* animated gradient background */
+/* animated background */
 body::before{
  content:"";
- position:absolute;
+ position:fixed;
  width:200%;
  height:200%;
  background:
@@ -33,7 +29,8 @@ body::before{
  radial-gradient(circle at 80% 30%, #6a00ff, transparent 40%),
  radial-gradient(circle at 50% 80%, #00ffd5, transparent 40%);
  animation:bgmove 12s linear infinite;
- opacity:0.25;
+ opacity:0.2;
+ z-index:-1;
 }
 
 @keyframes bgmove{
@@ -42,76 +39,121 @@ body::before{
  100%{transform:translate(0,0);}
 }
 
-.container{
- position:relative;
- z-index:2;
+.hero{
+ height:100vh;
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
+ align-items:center;
  text-align:center;
- padding:50px;
- border-radius:20px;
- background:rgba(255,255,255,0.05);
- backdrop-filter:blur(15px);
- box-shadow:0 0 40px rgba(0,0,0,0.8);
- animation:fadein 1.5s ease;
-}
-
-@keyframes fadein{
- from{opacity:0; transform:translateY(40px);}
- to{opacity:1; transform:translateY(0);}
 }
 
 h1{
  font-size:60px;
  letter-spacing:4px;
- margin-bottom:15px;
  background:linear-gradient(90deg,#ff0066,#6a00ff,#00ffd5);
  -webkit-background-clip:text;
  color:transparent;
- animation:glow 3s infinite alternate;
-}
-
-@keyframes glow{
- from{filter:brightness(1);}
- to{filter:brightness(1.4);}
 }
 
 h2{
  font-size:28px;
- margin-bottom:10px;
+ margin-top:10px;
  color:#cccccc;
- letter-spacing:2px;
 }
 
 h3{
  font-size:20px;
  color:#aaaaaa;
- letter-spacing:3px;
+ margin-top:5px;
 }
 
-.line{
- width:80px;
- height:3px;
+/* scrolling gallery */
+.gallery{
+ padding:60px 20px;
+}
+
+.gallery h2{
+ text-align:center;
+ margin-bottom:30px;
+}
+
+.scroll-container{
+ display:flex;
+ gap:20px;
+ overflow-x:auto;
+ padding:20px;
+ scroll-behavior:smooth;
+}
+
+.scroll-container::-webkit-scrollbar{
+ height:8px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb{
  background:#ff0066;
- margin:25px auto;
- border-radius:5px;
- animation:pulse 2s infinite;
+ border-radius:10px;
 }
 
-@keyframes pulse{
- 0%{transform:scaleX(1);}
- 50%{transform:scaleX(1.5);}
- 100%{transform:scaleX(1);}
+.card{
+ min-width:250px;
+ height:350px;
+ border-radius:20px;
+ overflow:hidden;
+ background:#111;
+ flex-shrink:0;
+ transition:0.4s;
+}
+
+.card img{
+ width:100%;
+ height:100%;
+ object-fit:cover;
+}
+
+.card:hover{
+ transform:scale(1.08);
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<section class="hero">
 <h1>ARNAV SHOUNAK</h1>
-<div class="line"></div>
 <h2>STUDENT</h2>
 <h3>MAIN WEB PAGE</h3>
+</section>
+
+<section class="gallery">
+<h2>SCROLL GALLERY</h2>
+
+<div class="scroll-container">
+
+<div class="card">
+<img src="images/img1.jpg">
 </div>
+
+<div class="card">
+<img src="images/img2.jpg">
+</div>
+
+<div class="card">
+<img src="images/img3.jpg">
+</div>
+
+<div class="card">
+<img src="images/img4.jpg">
+</div>
+
+<div class="card">
+<img src="images/img5.jpg">
+</div>
+
+</div>
+
+</section>
 
 </body>
 </html>
+
